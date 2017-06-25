@@ -1,4 +1,4 @@
-Onderwerpen:
+﻿Onderwerpen:
 Hoe en of je legacy apps in een container kunt draaien.
 Waar je data kunt bewaren als je gebruik maakt van meerdere containers.
 Op welke manier je VSTS Agents kunt inzetten om je docker environments te laten uitrollen.
@@ -6,8 +6,13 @@ Op welke manier je VSTS Agents kunt inzetten om je docker environments te laten 
 
 Erwin:
 Waarom je nog geen multi-platform environment op één host kan draaien.
+Het is wel mogelijk, maar met een kanttekening. Met containers gebruik je geen virtualisatie. De container gebruikt resources (geïsoleerd) van het host systeem. Daarom kan je geen Windows containers draaien op een Unix systeem. Linux containers kunnen wel draaien op Windows systemen omdat deze Linux virtualiseren in Hyper-V. Met Windows is het dan ook wel mogelijk om multiplatform containers te draaien.
+
 Wanneer je kiest tussen een Windows of Linux host.
+De eerste keuze is uiteraard op basis van het container type. Ga je alleen Linux containers gebruiken, dan is het logisch om dat op een Linux host te draaien. Als je zowel Linux als Windows containers wilt draaien dan kan je een Windows host en beide containers daar hosten. De Windows host maakt dan een geritualiseerd Linux systeem zodat de Linux containers kunnen draaien. De andere mogelijkheid is om zowel een Windows als Linux host te gebruiken.
+
 Kan er een windows container op een linux host draaien?
+Lijkt er niet op. Andersom kan wel omdat Microsoft dit zo gebouwd heeft en ze gaaf zijn.
 
 André:
 Hoe Docker compose gebruikt wordt om multi-tier architectures op te tuigen.
