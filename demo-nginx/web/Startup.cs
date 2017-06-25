@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using web.Configuration;
 
 namespace web
 {
@@ -27,6 +28,12 @@ namespace web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Adds services required for using options.
+            services.AddOptions();
+
+            // Register the IConfiguration instance which MyOptions binds against.
+            services.Configure<MyAppSettings>(Configuration);
+
             // Add framework services.
             services.AddMvc();
         }
