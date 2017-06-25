@@ -3,9 +3,14 @@ Hoe en of je legacy apps in een container kunt draaien.
 
 
 Erwin:
-Waar je data kunt bewaren als je gebruik maakt van meerdere containers.
-
 Multi platform demo!
+Storage demo!
+
+
+Waar je data kunt bewaren als je gebruik maakt van meerdere containers?
+Je kunt uiteraard gebruik maken van elke database die je wilt buitenom docker. Een database of storage in Azure zijn bijvoorbeeld voor de hand liggende keuzes. Maar je kan ook gebruik maken van Docker (container) volumes. 
+Je maakt dan Docker volumes aan en geeft deze een naam. Met behulp van de naam kan je containers naar deze volumes verwijzen.
+Voor containers houd je natuurlijk het bekende motto "pets vs cattle". De containers worden als ze niet meer nodig zijn of niet goed werken gewoon "afgeschoten". Om te voorkomen dat je je data kwijt raakt door het afschieten van een container wordt het opgeslagen op je host machine. Om vervolgens weer te voorkomen dat je afhankelijkheid krijgt van de host (en je containers niet meer portable zijn) benader je de data als volumes. Het eureka moment waar je even op moet komen is dat je deze volumes altijd moet benaderen via je containers. Als je de data dus wilt back-uppen ga je niet op je host machine de data opzoeken en kopiëren, maar roep je een container in het leven die het volume benaderd en de data wegschrijft naar een back-up storage.
 
 Waarom je nog geen multi-platform environment op één host kan draaien.
 Het is wel mogelijk, maar met een kanttekening. Met containers gebruik je geen virtualisatie. De container gebruikt resources (geïsoleerd) van het host systeem. Daarom kan je geen Windows containers draaien op een Unix systeem. Linux containers kunnen wel draaien op Windows systemen omdat deze Linux virtualiseren in Hyper-V. Met Windows is het dan ook wel mogelijk om multiplatform containers te draaien.
