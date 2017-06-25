@@ -1,0 +1,25 @@
+Onderwerpen:
+Hoe en of je legacy apps in een container kunt draaien.
+Waar je data kunt bewaren als je gebruik maakt van meerdere containers.
+Op welke manier je VSTS Agents kunt inzetten om je docker environments te laten uitrollen.
+
+
+Erwin:
+Waarom je nog geen multi-platform environment op één host kan draaien.
+Wanneer je kiest tussen een Windows of Linux host.
+Kan er een windows container op een linux host draaien?
+
+André:
+Hoe Docker compose gebruikt wordt om multi-tier architectures op te tuigen.
+	> Je geeft meerdere services aan in je docker compose, gericht op DockerFiles in projecten van je solution.
+	> Zie demo-nginx
+	
+Hoe je met NGINX een reverse proxy opzet, als entry-point voor een multi-container environment.
+- Waarom?
+	> Containers random IPs en poorten krijgen die private zijn voor de host, tenzij je de poorten naar je host open zet. Poorten kunnen echter maar één keer aangewezen worden. Dus twee containers op poort 80 kan niet. Dit werkt ook de mogelijkheid tegen om van één container die op poort 80 draait, een nieuwe versie uit te rollen.
+	> Reverse proxy draagt dus bij aan hogere beschikbaarheid van de sites, door zero-downtime deployments* (*Ex. tijd tussen route switch)
+	> Voorbeelden: Api v1, v2, v3 ontsluiten via https://site.nl/api/v1/... etc.
+- Hoe?
+	> Zie demo-nginx
+	> We maken gebruik van de image jwilder/nginx-proxy, omdat deze een container op zet met nginx en docker-gen. Docker-gen is een tool die nginx proxy configuraties genereert en nginx restart om deze toe te passen.
+	> Je kunt de gegenereerde proxy inzien door met "docker cp" de bestanden te downloaden van je container. Voorbeeld "docker cp 5d4e30facf3d:/ C:\temp"
