@@ -1,10 +1,12 @@
 ﻿Onderwerpen:
 Hoe en of je legacy apps in een container kunt draaien.
-Waar je data kunt bewaren als je gebruik maakt van meerdere containers.
-Op welke manier je VSTS Agents kunt inzetten om je docker environments te laten uitrollen.
 
 
 Erwin:
+Waar je data kunt bewaren als je gebruik maakt van meerdere containers.
+
+Multi platform demo!
+
 Waarom je nog geen multi-platform environment op één host kan draaien.
 Het is wel mogelijk, maar met een kanttekening. Met containers gebruik je geen virtualisatie. De container gebruikt resources (geïsoleerd) van het host systeem. Daarom kan je geen Windows containers draaien op een Unix systeem. Linux containers kunnen wel draaien op Windows systemen omdat deze Linux virtualiseren in Hyper-V. Met Windows is het dan ook wel mogelijk om multiplatform containers te draaien.
 
@@ -15,6 +17,10 @@ Kan er een windows container op een linux host draaien?
 Lijkt er niet op. Andersom kan wel omdat Microsoft dit zo gebouwd heeft en ze gaaf zijn.
 
 André:
+Op welke manier je VSTS Agents kunt inzetten om je docker environments te laten uitrollen.
+	> Build
+	> Release
+
 Hoe Docker compose gebruikt wordt om multi-tier architectures op te tuigen.
 	> Je geeft meerdere services aan in je docker compose, gericht op DockerFiles in projecten van je solution.
 	> Zie demo-nginx
