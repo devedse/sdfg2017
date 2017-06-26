@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  api:
+    image: __docker.registry__/api
+    container_name: api
+    environment:
+      - VIRTUAL_HOST=__hostname__/api
+
+  web:
+    image: __docker.registry__/web
+    container_name: web
+    environment:
+      - VIRTUAL_HOST=__hostname__
+      - API_URL=__api.url__
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: reverse-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
