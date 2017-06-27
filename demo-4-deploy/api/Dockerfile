@@ -3,4 +3,4 @@ ARG source
 WORKDIR /app
 EXPOSE 80
 COPY ${source:-obj/Docker/publish} .
-CMD ["dotnet", "run"
+CMD ["dotnet", "run"]
