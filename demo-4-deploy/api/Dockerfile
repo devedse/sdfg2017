@@ -3,4 +3,4 @@ ARG source
 WORKDIR /app
 EXPOSE 80
 COPY ${source:-obj/Docker/publish/api} .
-CMD ["dotnet", "run"]
+ENTRYPOINT ["dotnet", "api.dll"]
