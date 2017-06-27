@@ -2,13 +2,13 @@ version: '3'
 
 services:
   api:
-    image: __docker.registry__/api
+    image: __docker.registry__/api:latest
     container_name: api
     environment:
       - VIRTUAL_HOST=__hostname__/api
 
   web:
-    image: __docker.registry__/web
+    image: __docker.registry__/web:latest
     container_name: web
     environment:
       - VIRTUAL_HOST=__hostname__
