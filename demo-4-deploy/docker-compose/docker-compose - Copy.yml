@@ -2,14 +2,20 @@ version: '3'
 
 services:
   api:
-    image: geuzesdfg2017.azurecr.io/api:latest
+    image: api
     container_name: api
+    build:
+      context: ./../api
+      dockerfile: Dockerfile
     environment:
       - VIRTUAL_HOST=localhost/api
 
   web:
-    image: geuzesdfg2017.azurecr.io/web:latest
+    image: web
     container_name: web
+    build:
+      context: ./../web
+      dockerfile: Dockerfile
     environment:
       - VIRTUAL_HOST=localhost
       - API_URL=http://localhost/api/moviequote
