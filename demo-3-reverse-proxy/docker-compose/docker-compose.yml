@@ -2,8 +2,8 @@ version: '3'
 
 services:
   api:
-    image: api
-    container_name: api
+    image: api-demo3
+    container_name: api-demo3
     build:
       context: ./../api
       dockerfile: Dockerfile
@@ -11,8 +11,8 @@ services:
       - VIRTUAL_HOST=localhost/api
 
   web:
-    image: web
-    container_name: web
+    image: web-demo3
+    container_name: web-demo3
     build:
       context: ./../web
       dockerfile: Dockerfile
@@ -22,7 +22,7 @@ services:
 
   nginx-proxy:
     image: jwilder/nginx-proxy
-    container_name: reverse-proxy
+    container_name: reverse-proxy-demo3
     ports:
       - "80:80"
     volumes:

@@ -28,7 +28,7 @@ namespace api.Controllers
             Random random = new Random();
             return new MovieQuote
             {
-                Quote = database[random.Next(database.Length - 1)]
+                Quote = database[random.Next(database.Length)]
             };
         }
 
