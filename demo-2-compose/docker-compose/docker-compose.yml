@@ -15,6 +15,6 @@ services:
       context: ./../web
       dockerfile: Dockerfile
     ports:
-      - 80:80
+      - 8082:80
     environment:
       - API_URL=http://api/api/moviequote
